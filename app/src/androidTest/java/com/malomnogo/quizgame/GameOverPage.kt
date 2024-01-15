@@ -45,7 +45,7 @@ class GameOverPage {
                 ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
                 ViewMatchers.withParent(withId(R.id.rootLayout))
             )
-        ).check(ViewAssertions.matches(ButtonColorMatcher(Color.parseColor("#80E38A"))))
+        ).check(ViewAssertions.matches(ButtonColorMatcher("#80E38A")))
     }
 
     fun checkChoicesNotAvailable(choices: List<String>) {
@@ -57,7 +57,7 @@ class GameOverPage {
                     ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
                     ViewMatchers.withParent(withId(R.id.rootLayout))
                 )
-            ).check(ViewAssertions.matches(ButtonColorMatcher(Color.parseColor("#6E7292"))))
+            ).check(ViewAssertions.matches(ButtonColorMatcher("#6E7292")))
         }
     }
 
@@ -103,6 +103,6 @@ class GameOverPage {
                 ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
                 ViewMatchers.withParent(withId(R.id.rootLayout))
             )
-        ).check(ViewAssertions.matches(ButtonColorMatcher(Color.parseColor("#E63B3B"))))
+        ).check(ViewAssertions.matches(ButtonColorMatcher("#E63B3B")))
     }
 }

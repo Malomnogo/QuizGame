@@ -47,7 +47,7 @@ class AnsweredPage {
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
-        ).check(matches(ButtonColorMatcher(Color.parseColor("#80E38A"))))
+        ).check(matches(ButtonColorMatcher("#80E38A")))
     }
 
     fun checkChoicesNotAvailable(choices: List<String>) {
@@ -59,7 +59,7 @@ class AnsweredPage {
                     withParent(isAssignableFrom(LinearLayout::class.java)),
                     withParent(withId(R.id.rootLayout))
                 )
-            ).check(matches(ButtonColorMatcher(Color.parseColor("#6E7292"))))
+            ).check(matches(ButtonColorMatcher("#6E7292")))
         }
     }
 
@@ -105,6 +105,6 @@ class AnsweredPage {
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
-        ).check(matches(ButtonColorMatcher(Color.parseColor("#E63B3B"))))
+        ).check(matches(ButtonColorMatcher("#E63B3B")))
     }
 }
