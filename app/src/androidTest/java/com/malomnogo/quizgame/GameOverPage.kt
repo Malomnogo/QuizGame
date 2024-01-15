@@ -16,7 +16,7 @@ class GameOverPage {
     fun checkVisible() {
         Espresso.onView(
             CoreMatchers.allOf(
-                withId(R.id.actionButtton),
+                withId(R.id.actionButton),
                 withText("game over"),
                 ViewMatchers.isAssignableFrom(Button::class.java),
                 ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
@@ -74,7 +74,7 @@ class GameOverPage {
     fun clickGameOver() {
         Espresso.onView(
             CoreMatchers.allOf(
-                withId(R.id.actionButtton),
+                withId(R.id.actionButton),
                 withText("game over"),
                 ViewMatchers.isAssignableFrom(Button::class.java),
                 ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
@@ -86,7 +86,7 @@ class GameOverPage {
     fun checkNotVisible() {
         Espresso.onView(
             CoreMatchers.allOf(
-                withId(R.id.actionButtton),
+                withId(R.id.actionButton),
                 ViewMatchers.isAssignableFrom(Button::class.java),
                 ViewMatchers.withParent(ViewMatchers.isAssignableFrom(LinearLayout::class.java)),
                 ViewMatchers.withParent(withId(R.id.rootLayout))
