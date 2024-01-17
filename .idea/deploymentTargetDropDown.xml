@@ -18,7 +18,16 @@
           <timeTargetWasSelectedWithDropDown value="2024-01-15T15:12:09.211786Z" />
         </State>
       </entry>
+      <entry key="ScenarioTest">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="correctTwice()">
+        <State />
+      </entry>
+      <entry key="incorrectTwice()">
         <State />
       </entry>
     </value>

@@ -1,8 +1,9 @@
 package com.malomnogo.quizgame
 
-import android.widget.Button
+import android.graphics.Color
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -20,11 +21,12 @@ class AnsweredPage {
         onView(
             allOf(
                 withId(R.id.actionButton),
-                isAssignableFrom(Button::class.java),
+                withText("next"),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
-        ).check(matches(withText("next")))
+        ).check(matches(ButtonColorMatcher("#6AD9E8")))
     }
 
     fun checkQuestionVisible(question: String) {
@@ -42,11 +44,11 @@ class AnsweredPage {
         onView(
             allOf(
                 withText(text),
-                isAssignableFrom(Button::class.java),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
-        ).check(matches(ButtonColorMatcher("#80E38A")))
+        ).check(matches(ButtonColorMatcher(Color.parseColor("#80E38A"))))
     }
 
     fun checkChoicesNotAvailable(choices: List<String>) {
@@ -54,11 +56,11 @@ class AnsweredPage {
             onView(
                 allOf(
                     withText(text),
-                    isAssignableFrom(Button::class.java),
+                    isAssignableFrom(AppCompatButton::class.java),
                     withParent(isAssignableFrom(LinearLayout::class.java)),
                     withParent(withId(R.id.rootLayout))
                 )
-            ).check(matches(ButtonColorMatcher("#6E7292")))
+            ).check(matches(ButtonColorMatcher(Color.parseColor("#6E7292"))))
         }
     }
 
@@ -66,7 +68,7 @@ class AnsweredPage {
         onView(
             allOf(
                 withText(text),
-                isAssignableFrom(Button::class.java),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
@@ -78,7 +80,7 @@ class AnsweredPage {
             allOf(
                 withId(R.id.actionButton),
                 withText("next"),
-                isAssignableFrom(Button::class.java),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
@@ -89,7 +91,7 @@ class AnsweredPage {
         onView(
             allOf(
                 withId(R.id.actionButton),
-                isAssignableFrom(Button::class.java),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
@@ -100,10 +102,10 @@ class AnsweredPage {
         onView(
             allOf(
                 withText(text),
-                isAssignableFrom(Button::class.java),
+                isAssignableFrom(AppCompatButton::class.java),
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout))
             )
-        ).check(matches(ButtonColorMatcher("#E63B3B")))
+        ).check(matches(ButtonColorMatcher(Color.parseColor("#E63B3B"))))
     }
 }
