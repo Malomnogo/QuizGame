@@ -13,7 +13,9 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.CoreMatchers.allOf
 
-class GameOverPage {
+class GameOverPage(
+    private val question: String
+) {
 
     fun checkVisible() {
         onView(
@@ -27,7 +29,7 @@ class GameOverPage {
         ).check(matches(ButtonColorMatcher("#6AD9E8")))
     }
 
-    fun checkQuestionVisible(question: String) {
+    fun checkQuestionVisible() {
         onView(
             allOf(
                 withId(R.id.questionTextView),

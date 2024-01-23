@@ -268,4 +268,12 @@ private class FakeRepository : QuizRepository {
     override fun isLastQuestion(): Boolean {
         return index == list.size - 1
     }
+
+    override fun finishGame() {
+        index = 0
+    }
+
+    override fun save() {
+     //not used
+    }
 }

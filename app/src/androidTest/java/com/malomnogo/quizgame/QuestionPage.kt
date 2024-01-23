@@ -14,9 +14,12 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.CoreMatchers.allOf
 
-class QuestionPage {
+class QuestionPage(
+    private val question: String,
+    private val choices: List<String>
+) {
 
-    fun checkQuestionVisible(question: String) {
+    fun checkQuestionVisible() {
         onView(
             allOf(
                 withId(R.id.questionTextView),
@@ -27,8 +30,8 @@ class QuestionPage {
         ).check(matches(withText(question)))
     }
 
-    fun checkAnswers(answers: List<String>) {
-        answers.forEach { answer ->
+    fun checkAnswers() {
+        choices.forEach { answer ->
             val answerView = onView(
                 allOf(
                     withText(answer),
