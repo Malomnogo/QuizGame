@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         viewModel = (application as ViewModelProviderFactory).viewModel(QuizViewModel::class.java)
 
         val questionTextView: TextView = findViewById(R.id.questionTextView)
-        val choiceOneButton = findViewById<Button>(R.id.choiceOneButton)
-        val choiceTwoButton = findViewById<Button>(R.id.choiceTwoButton)
-        val choiceThreeButton = findViewById<Button>(R.id.choiceThreeButton)
-        val choiceFourButton = findViewById<Button>(R.id.choiceFourButton)
-        val actionButton = findViewById<Button>(R.id.actionButton)
+        val choiceOneButton = findViewById<ChoiceButton>(R.id.choiceOneButton)
+        val choiceTwoButton = findViewById<ChoiceButton>(R.id.choiceTwoButton)
+        val choiceThreeButton = findViewById<ChoiceButton>(R.id.choiceThreeButton)
+        val choiceFourButton = findViewById<ChoiceButton>(R.id.choiceFourButton)
+        val actionButton = findViewById<ActionButton>(R.id.actionButton)
 
         choiceOneButton.setOnClickListener {
             uiState = viewModel.choose(choiceOneButton.text.toString())
@@ -79,18 +79,13 @@ class MainActivity : AppCompatActivity() {
             uiState.show(actionButton, this)
         }
 
-        uiState = if (savedInstanceState == null) {
-            viewModel.init()
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                savedInstanceState.getSerializable("uiState", UiState::class.java) as UiState
-            } else {
-                savedInstanceState.getSerializable("uiState") as UiState
-            }
+        if (savedInstanceState == null) {
+            uiState = viewModel.init()
+            uiState.show(questionTextView)
+            uiState.show(choiceOneButton, choiceTwoButton, choiceThreeButton, choiceFourButton)
+            uiState.show(actionButton, this)
         }
-        uiState.show(questionTextView)
-        uiState.show(choiceOneButton, choiceTwoButton, choiceThreeButton, choiceFourButton)
-        uiState.show(actionButton, this)
+
     }
 
     override fun onPause() {
@@ -98,8 +93,4 @@ class MainActivity : AppCompatActivity() {
         viewModel.save()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putSerializable("uiState", uiState)
-    }
 }

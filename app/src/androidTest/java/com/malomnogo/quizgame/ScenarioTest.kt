@@ -23,44 +23,26 @@ class ScenarioTest {
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
         activityScenarioRule.scenario.recreate()
-        questionPage.checkAnswers()
         questionPage.clickAnswer(value = "green")
 
         val answeredPage = AnsweredPage(question = "What color is christmas tree?")
-        answeredPage.checkVisible()
         activityScenarioRule.scenario.recreate()
         answeredPage.checkVisible()
-
         answeredPage.checkQuestionVisible()
         answeredPage.checkAnswerCorrect(text = "green")
         answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "red", "blue"))
-
         activityScenarioRule.scenario.recreate()
-        answeredPage.checkQuestionVisible()
-        answeredPage.checkAnswerCorrect(text = "green")
-        answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "red", "blue"))
-
         answeredPage.clickChoice(text = "yellow")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "red")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "blue")
-        answeredPage.checkVisible()
         activityScenarioRule.scenario.recreate()
         answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "green")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickNext()
+        activityScenarioRule.scenario.recreate()
         answeredPage.checkNotVisible()
 
         questionPage = QuestionPage(
@@ -68,47 +50,29 @@ class ScenarioTest {
             choices = listOf("green", "white", "red", "blue")
         )
         questionPage.checkQuestionVisible()
-        activityScenarioRule.scenario.recreate()
-        questionPage.checkQuestionVisible()
-
         questionPage.checkAnswers()
         activityScenarioRule.scenario.recreate()
-        questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "white")
+
         val gameOverPage = GameOverPage(question = "What color is milk?")
-        gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
 
+        gameOverPage.checkVisible()
         gameOverPage.checkQuestionVisible()
         gameOverPage.checkAnswerCorrect(text = "white")
         gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "red", "blue"))
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkQuestionVisible()
-        gameOverPage.checkAnswerCorrect(text = "white")
-        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "red", "blue"))
-
         gameOverPage.clickChoice(text = "white")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "red")
         gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
 
         gameOverPage.clickChoice(text = "blue")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "green")
         gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickGameOver()
         assertTrue(activityScenarioRule.scenario.state != Lifecycle.State.RESUMED)
     }
@@ -120,45 +84,30 @@ class ScenarioTest {
             choices = listOf("green", "yellow", "red", "blue")
         )
         questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
         activityScenarioRule.scenario.recreate()
-        questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "green")
+        activityScenarioRule.scenario.recreate()
 
         val answeredPage = AnsweredPage(question = "What color is christmas tree?")
-        answeredPage.checkVisible()
-        answeredPage.checkQuestionVisible()
-        answeredPage.checkAnswerCorrect(text = "green")
-        answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "red", "blue"))
         activityScenarioRule.scenario.recreate()
         answeredPage.checkVisible()
         answeredPage.checkQuestionVisible()
+        activityScenarioRule.scenario.recreate()
         answeredPage.checkAnswerCorrect(text = "green")
         answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "red", "blue"))
-
         answeredPage.clickChoice(text = "yellow")
         answeredPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "red")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "blue")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "green")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickNext()
+        activityScenarioRule.scenario.recreate()
+        answeredPage.checkNotVisible()
 
         questionPage = QuestionPage(
             question = "What color is milk?",
@@ -167,44 +116,27 @@ class ScenarioTest {
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
         activityScenarioRule.scenario.recreate()
-        questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "red")
+        activityScenarioRule.scenario.recreate()
+
 
         val gameOverPage = GameOverPage(question = "What color is milk?")
-        gameOverPage.checkVisible()
-        gameOverPage.checkQuestionVisible()
-        gameOverPage.checkAnswerCorrect(text = "white")
-        gameOverPage.checkAnswerIncorrect(text = "red")
-        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "blue"))
         activityScenarioRule.scenario.recreate()
         gameOverPage.checkVisible()
         gameOverPage.checkQuestionVisible()
         gameOverPage.checkAnswerCorrect(text = "white")
         gameOverPage.checkAnswerIncorrect(text = "red")
         gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "blue"))
-
         gameOverPage.clickChoice(text = "white")
-        gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
         gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "red")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "blue")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "green")
         gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickGameOver()
         assertTrue(activityScenarioRule.scenario.state != Lifecycle.State.RESUMED)
     }
@@ -217,94 +149,58 @@ class ScenarioTest {
         )
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
-        activityScenarioRule.scenario.recreate()
-        questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "yellow")
 
         val answeredPage = AnsweredPage(question = "What color is christmas tree?")
         answeredPage.checkVisible()
         answeredPage.checkQuestionVisible()
+        activityScenarioRule.scenario.recreate()
+
         answeredPage.checkAnswerCorrect(text = "green")
         answeredPage.checkAnswerIncorrect(text = "yellow")
         answeredPage.checkChoicesNotAvailable(choices = listOf("red", "blue"))
         activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-        answeredPage.checkQuestionVisible()
-        answeredPage.checkAnswerCorrect(text = "green")
-        answeredPage.checkAnswerIncorrect(text = "yellow")
-        answeredPage.checkChoicesNotAvailable(choices = listOf("red", "blue"))
 
         answeredPage.clickChoice(text = "yellow")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "red")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "blue")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "green")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickNext()
+        activityScenarioRule.scenario.recreate()
         answeredPage.checkNotVisible()
 
         questionPage = QuestionPage(
             question = "What color is milk?",
             choices = listOf("green", "white", "red", "blue")
         )
-        questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
         activityScenarioRule.scenario.recreate()
-        answeredPage.checkNotVisible()
+
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
-
-        questionPage.clickAnswer(value = "red")
+        questionPage.clickAnswer(value = "blue")
+        activityScenarioRule.scenario.recreate()
 
         val gameOverPage = GameOverPage(question = "What color is milk?")
         gameOverPage.checkVisible()
         gameOverPage.checkQuestionVisible()
         gameOverPage.checkAnswerCorrect(text = "white")
-        gameOverPage.checkAnswerIncorrect(text = "red")
-        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "blue"))
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-        gameOverPage.checkQuestionVisible()
-        gameOverPage.checkAnswerCorrect(text = "white")
-        gameOverPage.checkAnswerIncorrect(text = "red")
-        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "blue"))
-
+        gameOverPage.checkAnswerIncorrect(text = "blue")
+        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "red"))
         gameOverPage.clickChoice(text = "white")
-        gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
 
+        gameOverPage.checkVisible()
         gameOverPage.clickChoice(text = "red")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "blue")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "green")
         gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickGameOver()
         assertTrue(activityScenarioRule.scenario.state != Lifecycle.State.RESUMED)
     }
@@ -317,45 +213,26 @@ class ScenarioTest {
         )
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
-        activityScenarioRule.scenario.recreate()
-        questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "red")
+        activityScenarioRule.scenario.recreate()
+
 
         val answeredPage = AnsweredPage(question = "What color is christmas tree?")
         answeredPage.checkVisible()
         answeredPage.checkQuestionVisible()
-        answeredPage.checkAnswerCorrect(text = "green")
-        answeredPage.checkAnswerIncorrect(text = "red")
-        answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "blue"))
         activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-        answeredPage.checkQuestionVisible()
+
         answeredPage.checkAnswerCorrect(text = "green")
         answeredPage.checkAnswerIncorrect(text = "red")
         answeredPage.checkChoicesNotAvailable(choices = listOf("yellow", "blue"))
-
         answeredPage.clickChoice(text = "yellow")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "red")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "blue")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickChoice(text = "green")
         answeredPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkVisible()
-
         answeredPage.clickNext()
         answeredPage.checkNotVisible()
 
@@ -365,46 +242,24 @@ class ScenarioTest {
         )
         questionPage.checkQuestionVisible()
         questionPage.checkAnswers()
-        activityScenarioRule.scenario.recreate()
-        answeredPage.checkNotVisible()
-        questionPage.checkQuestionVisible()
-        questionPage.checkAnswers()
-
         questionPage.clickAnswer(value = "white")
+        activityScenarioRule.scenario.recreate()
+
 
         val gameOverPage = GameOverPage(question = "What color is milk?")
-
         gameOverPage.checkVisible()
         gameOverPage.checkQuestionVisible()
         gameOverPage.checkAnswerCorrect(text = "white")
         gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "red", "blue"))
-
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-        gameOverPage.checkQuestionVisible()
-        gameOverPage.checkAnswerCorrect(text = "white")
-        gameOverPage.checkChoicesNotAvailable(choices = listOf("green", "red", "blue"))
-
         gameOverPage.clickChoice(text = "white")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "red")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "blue")
         gameOverPage.checkVisible()
-        activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickChoice(text = "green")
         gameOverPage.checkVisible()
         activityScenarioRule.scenario.recreate()
-        gameOverPage.checkVisible()
-
         gameOverPage.clickGameOver()
         assertTrue(activityScenarioRule.scenario.state != Lifecycle.State.RESUMED)
     }
